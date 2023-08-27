@@ -99,6 +99,18 @@ CREATE TABLE commentaires_touches(
    FOREIGN KEY(id_utilisateur) REFERENCES utilisateurs(id_utilisateur)
 ) ENGINE = InnoDB;
 
+CREATE TABLE messages_prives(
+   id_message_prive INT AUTO_INCREMENT,
+   date_message_prive DATETIME NOT NULL,
+   contenu_message_prive TEXT,
+   image_message_prive VARCHAR(255),
+   id_utilisateur INT,
+   id_utilisateur_1 INT,
+   PRIMARY KEY(id_message_prive),
+   FOREIGN KEY(id_utilisateur) REFERENCES utilisateurs(id_utilisateur),
+   FOREIGN KEY(id_utilisateur_1) REFERENCES utilisateurs(id_utilisateur)
+) ENGINE = InnoDB;
+
 CREATE TABLE publications(
    id_publication INT AUTO_INCREMENT,
    date_publication DATETIME NOT NULL,
@@ -125,6 +137,7 @@ CREATE TABLE commentaires_publications(
 CREATE TABLE ajouter_utilisateurs(
    id_utilisateur INT,
    id_utilisateur_1 INT,
+   date_ajouter_utilisateur DATETIME NOT NULL,
    PRIMARY KEY(id_utilisateur, id_utilisateur_1),
    FOREIGN KEY(id_utilisateur) REFERENCES utilisateurs(id_utilisateur),
    FOREIGN KEY(id_utilisateur_1) REFERENCES utilisateurs(id_utilisateur)
