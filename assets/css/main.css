@@ -1,0 +1,23 @@
+:root {
+    --backgroundColor: #FAFAF5;
+    --greenColor: #A3A65D;
+    --darkGreenColor: #595331;
+    --yellowColor: #F2B705;
+    --blackColor: #252621;
+    --whiteColor: #FFFFFF;
+}
+
+*{    
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    color: var(--whiteColor);
+    font-family: "Century Gothic";
+    font-size: 14pt;
+}
+
+body{
+    background-color: var(--backgroundColor)
+}
+
