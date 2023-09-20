@@ -1,4 +1,6 @@
 // base
+const colors = window.getComputedStyle(document.documentElement);
+let statusSession = true;
 const pages = {
     "feed" : "Fil d'actu",
     "map" : "Map",
@@ -59,7 +61,8 @@ for (icon of iconsList) {
 divHeaderContent.append(divIcons);
 
 // mobile icons
-iconsList = ["feed", "search", "mp", "notif"];
+//iconsList = ["feed", "search", "mp", "notif"];
+iconsList = ["feed", "mp", "notif"];
 const divIconsMobile = document.createElement("div");
 divIconsMobile.id = "iconsMobile";
 for (icon of iconsList) {
@@ -107,23 +110,111 @@ function transformHamburger() {
 const divDisplayMenu = document.createElement("div");
 divDisplayMenu.id = "navbarHamburger";
 let visible = false;
-divDisplayMenu.style.top = `0px`;
+divDisplayMenu.style.top = `80px`;
 divDisplayMenu.style.display = "block";
 divDisplayMenu.style.transform = "translateX(100%)";
+const displayMenuList = ["Profil", "Map", "Classement", "Guides", "Amis"];
+const displayMenuUL = document.createElement("ul");
+displayMenuUL.id = "hamburgerList";
+for (element of displayMenuList) {
+    const elementLI = document.createElement("li");
+    const elementLink = document.createElement("a");
+    elementLink.innerText = element;    
+    elementLink.style.fontSize = "20px";
+    elementLI.style.margin = "30px";
+    elementLink["href"] = `../html/${element.toLowerCase()}.html`;    
+    elementLI.append(elementLink);
+    displayMenuUL.append(elementLI);
+}
+divDisplayMenu.append(displayMenuUL);
 divMenuHamburger.addEventListener("click", () => {  
     transformHamburger();  
-    if (visible) {        
+    if (visible) {   
+        //divDisplayMenu.style.display = "none";     
         divDisplayMenu.style.transform = "translateX(100%)";
         document.body.style.overflow = "auto"; 
-    } else {        
+        
+    } else {     
+        //divDisplayMenu.style.display = "block";   
         divDisplayMenu.style.transform = "translateX(0%)";
         document.body.style.overflow = "hidden";        
     }
     visible = !visible;
 });
 document.body.append(divDisplayMenu);
+//sessions
+function offSession(div) {    
+    const divButtons = document.createElement("div");
+    const goFishingButton = document.createElement("button");
+    const addFishButton = document.createElement("button");
+    const message = document.createElement("p");
+    divButtons.style.marginTop = "10px";
+    divButtons.style.display = "flex";
+    divButtons.style.justifyContent = "space-between";
+    message.innerText = "Vous n'êtes pas à la pêche.";
+    goFishingButton.innerText = "Démarrer une session";
+    addFishButton.innerText = "Ajouter un poisson";
+    addFishButton.style.backgroundColor = colors.getPropertyValue("--greenColor");
+    divButtons.append(goFishingButton);
+    divButtons.append(addFishButton);
+    div.append(message);
+    div.append(divButtons);
+}
+function onSession(div, fishingTime, nbFish=0, weightFish=0, sizeFish=0) {
+    const divDetails = document.createElement("div");
+    const divButtons = document.createElement("div");
+    const stopFishingButton = document.createElement("button");    
+    const addFishButton = document.createElement("button");
+    divButtons.style.marginTop = "10px";
+    divButtons.style.display = "flex";
+    divButtons.style.justifyContent = "space-between";
+    stopFishingButton.innerText = "Clôturer la session";
+    addFishButton.innerText = "Ajouter un poisson";
+    addFishButton.style.backgroundColor = colors.getPropertyValue("--greenColor");
+    stopFishingButton.style.backgroundColor = colors.getPropertyValue("--redColor");
+    let infosList = {
+        "Temps de pêche : " : fishingTime,
+        "Nombre de poisson : " : nbFish,
+        "Plus gros poisson : " : weightFish + " kg",
+        "Plus grand poisson : " : sizeFish + " cm",
+    };
+    for (element in infosList) {
+        info = document.createElement("p");
+        info.style.marginTop = "5px";
+        info.innerText = element + infosList[element];        
+        divDetails.append(info);
+    }   
+    divButtons.append(addFishButton);
+    divButtons.append(stopFishingButton);
+    div.append(divDetails);    
+    div.append(divButtons);   
+}
+const statusSessionDiv = document.createElement("fieldset");
+statusSessionDiv.id = "session";
+statusSessionDiv.style.margin = "0px 30px";
+statusSessionDiv.style.padding = "10px 20px 20px 20px";
+statusSessionDiv.style.borderColor = colors.getPropertyValue("--greenColor");
+const statusSessionLegend = document.createElement("legend");
+statusSessionLegend.innerText = "Session en cours";
+statusSessionLegend.style.fontSize = "20px";
+statusSessionLegend.style.margin = "auto";
+statusSessionLegend.style.padding = "0 10px";
+statusSessionDiv.append(statusSessionLegend)
+divDisplayMenu.append(statusSessionDiv);
+statusSession = statusSession ? onSession(statusSessionDiv, "4h32", 12, 4.6, 65) : offSession(statusSessionDiv);
+//logo
+const logoMenuLink = document.createElement("a");
+const logoMenu = document.createElement("img");
+logoMenu["src"] = "../assets/img/logo/logo.png";
+logoMenuLink["href"] = "../html/feed.html"
+logoMenu.style.width = "80%";
+logoMenu.style.height = "auto";
+logoMenu.style.display = "flex";
+logoMenu.style.margin = "50px auto";
+logoMenuLink.append(logoMenu);
+divDisplayMenu.append(logoMenuLink);
 
-//scroll mobile
+//scroll hidden header
 let lastScrollY = 0;
 window.addEventListener("scroll", () => {
     const currentScroll = document.documentElement.scrollTop;    
@@ -134,7 +225,6 @@ window.addEventListener("scroll", () => {
     }
     lastScrollY = currentScroll;
 });
-
 
 
 
