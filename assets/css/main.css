@@ -14,10 +14,27 @@
     list-style: none;
     color: var(--whiteColor);
     font-family: "Century Gothic";
-    font-size: 14pt;
+    font-size: 14px;
+}
+
+p{
+    color: var(--blackColor);
 }
 
 body{
-    background-color: var(--backgroundColor)
+    background-color: var(--backgroundColor);
+}
+#main{
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 110px;
 }
 
+
+
+@media screen and (max-width: 1000px) {
+    #main{
+        width: 90%;
+        margin-top: 90px;
+    }    
+}
