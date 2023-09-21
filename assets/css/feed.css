@@ -2,6 +2,12 @@
     font-weight: bold;
     color: var(--darkGreenColor);
 }
+.left, .right{
+    width: 25%;
+}
+.center{
+    width: 75%;
+}
 
 #main, .publications-add, .filters-type-buttons{
     display: flex;    
