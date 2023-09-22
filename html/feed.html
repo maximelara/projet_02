@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/feed.css">
+    <script src="https://kit.fontawesome.com/579794de73.js" crossorigin="anonymous"></script>
     <script src="../assets/js/header.js" defer></script>
     <script src="../assets/js/feed.js" defer></script>
     <script src="../assets/js/currentSession.js" defer></script>
@@ -14,28 +15,58 @@
 <body> 
     <div id="header"></div> 
     <div id="main">
-        <div class="left"> 
+        <div class="left">             
             <div id="currentSession"></div>           
-            <div class="filters">
+            <fieldset class="filters">
+                <legend>Filtres</legend>
                 <div class="filters-type">
                     <legend>Type de publications</legend>
-                    <div class="filters-type-buttons">
-                        <span class="filter-left p3"><p>Toutes</p></span>
-                        <span class="filter-center p3"><p>Sessions</p></span>
-                        <span class="filter-right p3"><p>Poissons</p></span>
+                    <div class="filters-type-buttons" id="publications-type">
+                        <span class="filter-left p3" id="filter-all"><p>Toutes</p></span>
+                        <span class="filter-center p3" id="filter-sessions"><p>Sessions</p></span>
+                        <span class="filter-right p3" id="filter-fish"><p>Poissons</p></span>
                     </div>
                 </div>
                 <div class="filters-type">
-                    <legend>Voir les publications de</legend>
-                    <div class="filters-type-buttons">
-                        <span class="filter-left p2"><p>Tout le monde</p></span>
-                        <span class="filter-right p2"><p>Mes amis</p></span>
+                    <legend>Publications de</legend>
+                    <div class="filters-type-buttons"  id="publications-who">
+                        <span class="filter-left p2" id="filter-everyone"><p>Tout le monde</p></span>
+                        <span class="filter-right p2" id="filter-friends"><p>Mes amis</p></span>
                     </div>
+                </div>
+                <div class="filters-type" id="location">
+                    <legend>Lieu</legend>                    
+                    <div class="filters-type-buttons"  id="publications-where">
+                        <span class="filter-left p2" id="filter-everywhere"><p>Partout</p></span>
+                        <span class="filter-right p2" id="filter-location"><p>Localisation</p><i class="fa-solid fa-chevron-down"></i></span>                        
+                    </div> 
+                    <div id="location-selection">
+                        <div class="radio" id="location-input">
+                            <input placeholder="Ajouter une localisation">
+                            <span></span>
+                        </div>
+                        <div class="radio" id="location-position">
+                            <p>Autour de moi</p>
+                            <span></span>
+                        </div>      
+                        <div class="distance-location">
+                            <p>Dans un rayon de</p>
+                            <p id="distance-location-km"></p>
+                        </div>  
+                        <div id="distance-location-cursor">
+                            <span id="distance-location-cursor-left"></span>
+                            <span id="distance-location-cursor-circle"></span>
+                            <span id="distance-location-cursor-right"></span>
+                        </div>  
+                        <div id="distance-location-scale">
+                            <p id="scale-low"></p>
+                            <p id="scale-high"></p>
+                        </div>                
+                    </div>              
                 </div>
                 <div class="filters-type"></div>
                 <div class="filters-type"></div>
-                <div class="filters-type"></div>
-            </div>
+            </fieldset>
         </div>
         <div class="center">
             <div class="publications-add">
@@ -46,10 +77,8 @@
             <div class="publications"></div>
         </div>
         <div class="right">
-            <div class="sessions"></div>
             <div class="friends"></div>
-        </div>
-    
+        </div>    
     </div>    
 </body>
 </html>

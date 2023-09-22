@@ -18,7 +18,7 @@
     font-size: 14px;
 }
 html, body{
-    height: 100%;
+    height: 100%;    
 }
 body{
     background-color: var(--backgroundColor);
@@ -26,6 +26,7 @@ body{
 }
 #main{
     max-width: 1000px;
+    padding: 0 10px;
     margin: 0 auto;  
     padding-top: 110px;
 }
@@ -39,6 +40,43 @@ body{
 
 #main p{
     color: var(--blackColor);
+}
+input{
+    border-radius: 5px;
+    outline: none;
+}
+
+fieldset{
+    border-radius: 5px;
+    padding: 0 10px 10px 10px;
+    border: 1px solid var(--greenColor);
+}
+fieldset legend{
+    font-size: 16px;
+    margin: 0 auto;
+    padding: 0 10px;
+    color: var(--blackColor);
+}
+
+button{
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    padding: 0 10px;
+    font-weight: bold;
+}
+button:active{
+    background-color: var(--whiteColor);
+    color: var(--blackColor);
+}
+.startSessionButton{
+    background-color: var(--yellowColor);
+}
+.addFishButton{
+    background-color: var(--greenColor);
+}
+.stopSessionButton{
+    background-color: var(--redColor);
 }
 
 @media screen and (max-width: 1000px) {

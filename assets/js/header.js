@@ -127,6 +127,9 @@ function mobileMenu(){
     //navbar
     navbarMobile(menuMobileDiv);
     //session
+    const divSession = document.createElement("div");
+    divSession.id = "infoSessionMobile";
+    menuMobileDiv.append(divSession);
     //logo
     logoMobile(menuMobileDiv);
 }
@@ -136,7 +139,7 @@ function mobileMenuAnim(visible){
     menuMobileDiv = document.querySelector("#menuMobile");
     if (visible) {
         document.body.style.overflow = "auto";
-        menuMobileDiv.style.transform = "translateX(100%)";   
+        menuMobileDiv.style.transform = "translateX(100%)"; 
     } else {
         document.body.style.overflow = "hidden";     
         menuMobileDiv.style.transform = "translateX(0%)";
@@ -181,7 +184,9 @@ function logoMobile(div){
     const logo = document.createElement("img");    
     logoLink.style.display = "flex"; 
     logoLink.style.alignItems = "center";
-    logo.style.width = "200px";
+    logoLink.style.margin = "auto";
+    logoLink.id = "logoMobile";
+    logo.style.width = "50%";
     logo.style.height = "auto";
     logo.style.margin = "0 auto";
     logo["src"] = "../assets/img/logo/logo.png";

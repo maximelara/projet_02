@@ -2,3 +2,76 @@
     font-weight: bold;
     color: var(--darkGreenColor);
 }
+.filters-type-buttons{    
+    display: flex;
+    justify-content: space-between;
+}
+.filters, .filters-type{
+    margin-top: 10px;
+}
+.filters-type legend{
+    font-weight: bold;
+    text-align: center;
+    font-size: 14px;
+}
+.filters-type-buttons span{
+    margin-top: 5px;
+    background-color: var(--whiteColor);
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    padding: 0px 5px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.filter-left{
+    border-radius: 5px 0 0 5px;
+}
+.filter-right{
+    border-radius: 0 5px 5px 0;
+}
+.p3{
+    width: 1/3%;
+}
+.p2{
+    width: 50%;
+}
+i{
+    color: var(--blackColor);
+}
+#filter-location{
+    display: flex;
+    justify-content: space-around;
+}
+#location-selection{
+    background-color: var(--whiteColor);    
+    padding:5px 10px;
+    cursor: pointer;
+    border-radius: 0 0 5px 5px;
+}
+#location-selection input{
+    width: 100%;
+    cursor: pointer;
+    border: none; 
+    color: black;
+    padding: 5px 0;
+}
+#location-selection p{
+    width: 100%;
+    cursor: pointer;
+    padding: 5px 0;
+}
+#location-selection .radio{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+}
+#location-selection span{
+    background-color: var(--whiteColor);    
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 5px var(--darkGreenColor);
+}
