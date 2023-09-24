@@ -69,15 +69,6 @@ button:active{
     background-color: var(--whiteColor);
     color: var(--blackColor);
 }
-.startSessionButton{
-    background-color: var(--yellowColor);
-}
-.addFishButton{
-    background-color: var(--greenColor);
-}
-.stopSessionButton{
-    background-color: var(--redColor);
-}
 
 @media screen and (max-width: 1000px) {
     #main{

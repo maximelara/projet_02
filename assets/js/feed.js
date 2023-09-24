@@ -1,3 +1,4 @@
+
 function getFilter(filterButtons, filterDefault) {
     filterDefault.style.backgroundColor = window.getComputedStyle(document.documentElement).getPropertyValue("--greenColor");
     filterDefault.querySelector("p").style.color = window.getComputedStyle(document.documentElement).getPropertyValue("--whiteColor");
@@ -37,8 +38,26 @@ function getRadioLocation(filterButtons, filterDefault) {
 }
 
 function getDistance() {
-    
+    const distanceSlider = document.getElementById("slider-distance");
+    distanceSlider.value = 7;
+    const distanceList = [10, 25, 50, 100, 250, 500, 1000];
+    let minScale = document.querySelector("#scale-low");
+    let maxScale = document.querySelector("#scale-high");
+    let distance = document.querySelector("#distance-location-km");
+    distance.style.color = window.getComputedStyle(document.documentElement).getPropertyValue("--greenColor"); 
+    distance.style.fontWeight = "bold"; 
+    distance.innerText = distanceList[distanceList.length-1] + "km";
+    minScale.innerText = distanceList[0] + "km";
+    maxScale.innerText = distanceList[distanceList.length-1] +"km";
+    distanceSlider.addEventListener("input", (event) => {
+        const selectedIndex = event.target.value;
+        const selectedDistance = distanceList[selectedIndex];       
+        distance.innerText = selectedDistance + "km";
+      
+    });
+
 }
+getDistance();
 
 function openLocationMenu(){
     const buttonDisplay = document.querySelector("#filter-location");
@@ -62,6 +81,5 @@ function getFilters() {
     
 }
 getFilters();
-
 
 

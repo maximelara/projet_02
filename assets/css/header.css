@@ -42,14 +42,6 @@
     display: none;
 }
 
-.currentSession p{
-    margin: 0 3%;
-}
-.currentSession button{
-    width: 45%;
-    margin-top: 10px;
-}
-
 
 @media screen and (max-width: 1000px) {
     #header{
@@ -92,14 +84,6 @@
     #navbarMobile{
         margin-top: 100px;
     }
-    .currentSession{
-        margin: 0 50px;       
-    }  
-    .currentSession legend{
-        color: var(--whiteColor);
-    } 
-    #currentSession, .filters{
-        display: none;
-    }
+    
 }
     

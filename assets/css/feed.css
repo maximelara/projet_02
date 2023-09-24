@@ -18,12 +18,12 @@
     margin-top: 5px;
     background-color: var(--whiteColor);
     height: 30px;
-    cursor: pointer;
     display: flex;
     padding: 0px 5px;
     align-items: center;
     justify-content: center;
     width: 100%;
+    cursor: pointer;
 }
 
 .filter-left{
@@ -48,19 +48,20 @@ i{
 #location-selection{
     background-color: var(--whiteColor);    
     padding:5px 10px;
-    cursor: pointer;
     border-radius: 0 0 5px 5px;
 }
 #location-selection input{
     width: 100%;
-    cursor: pointer;
     border: none; 
     color: black;
     padding: 5px 0;
+    cursor: pointer;
+}
+#location-position{
+    cursor: pointer;
 }
 #location-selection p{
     width: 100%;
-    cursor: pointer;
     padding: 5px 0;
 }
 #location-selection .radio{
@@ -68,10 +69,47 @@ i{
     justify-content: space-between;
     align-items: center;    
 }
-#location-selection span{
+#location-selection .radio span{
     background-color: var(--whiteColor);    
     width: 15px;
     height: 15px;
     border-radius: 50%;
     box-shadow: inset 0 0 5px var(--darkGreenColor);
 }
+
+#distance-location-scale, .distance-location{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+#distance-location-scale p{
+    color: gray;
+}
+
+#distance-location-scale #scale-high, #distance-location-km{
+    text-align: end;
+}
+
+
+.slidecontainer{
+    width: 100%;
+}
+/* slider firefox */
+.slider::-moz-range-track{
+    height: 5px;
+    background: var(--darkGreenColor);
+    border-radius: 2px;
+}
+.slider::-moz-range-progress{
+    background: var(--greenColor);
+    height: 5px;
+    border-radius: 2px;
+}
+.slider::-moz-range-thumb{
+    width: 15px;
+    height: 15px; 
+    background: var(--greenColor);
+    border-radius: 50%;
+}
+
+/*slider webkit*/

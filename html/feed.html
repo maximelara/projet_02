@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/feed.css">
+    <link rel="stylesheet" href="../assets/css/currentSession.css">
     <script src="https://kit.fontawesome.com/579794de73.js" crossorigin="anonymous"></script>
     <script src="../assets/js/header.js" defer></script>
     <script src="../assets/js/feed.js" defer></script>
@@ -53,16 +54,15 @@
                             <p>Dans un rayon de</p>
                             <p id="distance-location-km"></p>
                         </div>  
-                        <div id="distance-location-cursor">
-                            <span id="distance-location-cursor-left"></span>
-                            <span id="distance-location-cursor-circle"></span>
-                            <span id="distance-location-cursor-right"></span>
-                        </div>  
+                        <div class="slidecontainer">
+                            <input type="range" min="0" max="6" class="slider" id="slider-distance">
+                        </div> 
                         <div id="distance-location-scale">
                             <p id="scale-low"></p>
                             <p id="scale-high"></p>
                         </div>                
-                    </div>              
+                    </div>  
+                              
                 </div>
                 <div class="filters-type"></div>
                 <div class="filters-type"></div>

@@ -36,7 +36,7 @@ function currentSessionOn(div, fishingTime, nbFish=0, weightFish=0, sizeFish=0) 
     let infosList = {
         "Temps de pêche : " : fishingTime,
         "Nombre de poisson : " : nbFish,
-        "Plus gros/grand poisson : " : weightFish + " kg - " + sizeFish + " cm",
+        "Plus gros/grand poisson : " : weightFish + "kg - " + sizeFish + "cm",
     };
     for (element in infosList) {
         info = document.createElement("p");
