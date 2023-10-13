@@ -1,0 +1,9 @@
+
+.publication-main{
+    background-color: var(--whiteColor); 
+    box-sizing: border-box;
+    border-left: 2px solid var(--greenColor);
+    border-bottom: 2px solid var(--greenColor);
+    margin-bottom: 20px;
+    height: 500px;
+}

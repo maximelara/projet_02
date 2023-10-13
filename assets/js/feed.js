@@ -38,9 +38,9 @@ function getRadioLocation(filterButtons, filterDefault) {
 }
 
 function getDistance() {
-    const distanceSlider = document.getElementById("slider-distance");
-    distanceSlider.value = 7;
+    const distanceSlider = document.getElementById("slider-distance");    
     const distanceList = [10, 25, 50, 100, 250, 500, 1000];
+    distanceSlider.value = distanceList.length;
     let minScale = document.querySelector("#scale-low");
     let maxScale = document.querySelector("#scale-high");
     let distance = document.querySelector("#distance-location-km");
@@ -52,12 +52,9 @@ function getDistance() {
     distanceSlider.addEventListener("input", (event) => {
         const selectedIndex = event.target.value;
         const selectedDistance = distanceList[selectedIndex];       
-        distance.innerText = selectedDistance + "km";
-      
+        distance.innerText = selectedDistance + "km";      
     });
-
 }
-getDistance();
 
 function openLocationMenu(){
     const buttonDisplay = document.querySelector("#filter-location");
@@ -78,7 +75,9 @@ function getFilters() {
     let filterWho = getFilter(document.querySelectorAll("#publications-who span"), document.querySelector("#filter-everyone"));
     let filterWhere = getFilter(document.querySelectorAll("#publications-where span"), document.querySelector("#filter-everywhere"));
     let filterWhereRadio = getRadioLocation(document.querySelectorAll(".radio"), document.querySelector("#location-input span"));
-    
+    let filterDistance = getDistance();
+    let filterSpecies = getFilter(document.querySelectorAll("#select-species span"), document.querySelector("#filter-all-species"));
+    let filterSort = getFilter(document.querySelectorAll(".sort span"), document.querySelector("#sort-date"));
 }
 getFilters();
 

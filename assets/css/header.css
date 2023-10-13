@@ -41,6 +41,12 @@
 #menuMobile{
     display: none;
 }
+#header .left , #header .right{
+    width: 25%;    
+}
+#header .center {
+    width: 50%;
+}
 
 
 @media screen and (max-width: 1000px) {

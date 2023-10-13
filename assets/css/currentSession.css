@@ -25,8 +25,6 @@
     .currentSession legend{
         color: var(--whiteColor);
     } 
-    #currentSession, .filters{
-        display: none;
-    }
+   
 }
     

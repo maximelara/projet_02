@@ -151,13 +151,18 @@ function hiddenHeader(){
     let lastScrollY = 0;
     const divHeader = document.querySelector("#header");
     window.addEventListener("scroll", () => {
-        const currentScroll = document.documentElement.scrollTop;   
-        if (currentScroll > lastScrollY) {
-            divHeader.style.transform = "translateY(-100%)";
+        const currentScroll = document.documentElement.scrollTop;  
+        if (window.matchMedia("(max-width: 1000px)").matches) {
+            if (currentScroll > lastScrollY) {
+                divHeader.style.transform = "translateY(-100%)";
+            } else{
+                divHeader.style.transform = "translateY(0)";
+            }            
         } else{
             divHeader.style.transform = "translateY(0)";
-        }
+        }    
         lastScrollY = currentScroll;
+        
     });
 }
 //nav bar mobile

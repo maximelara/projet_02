@@ -7,77 +7,106 @@
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/feed.css">
     <link rel="stylesheet" href="../assets/css/currentSession.css">
+    <link rel="stylesheet" href="../assets/css/publications.css">
     <script src="https://kit.fontawesome.com/579794de73.js" crossorigin="anonymous"></script>
     <script src="../assets/js/header.js" defer></script>
     <script src="../assets/js/feed.js" defer></script>
     <script src="../assets/js/currentSession.js" defer></script>
+    <script src="../assets/js/publications.js" defer></script>
     <title>Feed</title>
 </head>
 <body> 
     <div id="header"></div> 
     <div id="main">
-        <div class="left">             
-            <div id="currentSession"></div>           
-            <fieldset class="filters">
-                <legend>Filtres</legend>
-                <div class="filters-type">
-                    <legend>Type de publications</legend>
-                    <div class="filters-type-buttons" id="publications-type">
-                        <span class="filter-left p3" id="filter-all"><p>Toutes</p></span>
-                        <span class="filter-center p3" id="filter-sessions"><p>Sessions</p></span>
-                        <span class="filter-right p3" id="filter-fish"><p>Poissons</p></span>
+        <div class="left"> 
+            <div id="feed-left">
+                <div class="publications-add">                
+                    <input placeholder="Publier...">
+                    <div id="icons-cam">
+                        <i class="fa-solid fa-camera"></i>
+                        <i class="fa-regular fa-image"></i>    
                     </div>
                 </div>
-                <div class="filters-type">
-                    <legend>Publications de</legend>
-                    <div class="filters-type-buttons"  id="publications-who">
-                        <span class="filter-left p2" id="filter-everyone"><p>Tout le monde</p></span>
-                        <span class="filter-right p2" id="filter-friends"><p>Mes amis</p></span>
-                    </div>
-                </div>
-                <div class="filters-type" id="location">
-                    <legend>Lieu</legend>                    
-                    <div class="filters-type-buttons"  id="publications-where">
-                        <span class="filter-left p2" id="filter-everywhere"><p>Partout</p></span>
-                        <span class="filter-right p2" id="filter-location"><p>Localisation</p><i class="fa-solid fa-chevron-down"></i></span>                        
-                    </div> 
-                    <div id="location-selection">
-                        <div class="radio" id="location-input">
-                            <input placeholder="Ajouter une localisation">
-                            <span></span>
+                <div id="currentSession"></div>           
+                <fieldset class="filters">
+                    <legend>Filtres</legend>
+                    <div class="filters-type">
+                        <legend>Type de publications</legend>
+                        <div class="filters-type-buttons" id="publications-type">
+                            <span class="filter-left p3" id="filter-all"><p>Toutes</p></span>
+                            <span class="filter-center p3" id="filter-sessions"><p>Sessions</p></span>
+                            <span class="filter-right p3" id="filter-fish"><p>Poissons</p></span>
                         </div>
-                        <div class="radio" id="location-position">
-                            <p>Autour de moi</p>
-                            <span></span>
-                        </div>      
-                        <div class="distance-location">
-                            <p>Dans un rayon de</p>
-                            <p id="distance-location-km"></p>
-                        </div>  
-                        <div class="slidecontainer">
-                            <input type="range" min="0" max="6" class="slider" id="slider-distance">
+                    </div>
+                    <div class="filters-type">
+                        <legend>Publications de</legend>
+                        <div class="filters-type-buttons"  id="publications-who">
+                            <span class="filter-left p2" id="filter-everyone"><p>Tout le monde</p></span>
+                            <span class="filter-right p2" id="filter-friends"><p>Mes amis</p></span>
+                        </div>
+                    </div>
+                    <div class="filters-type" id="location">
+                        <legend>Lieu</legend>                    
+                        <div class="filters-type-buttons"  id="publications-where">
+                            <span class="filter-left p2" id="filter-everywhere"><p>Partout</p></span>
+                            <span class="filter-right p2" id="filter-location"><p>Localisation</p><i class="fa-solid fa-chevron-down"></i></span>                        
                         </div> 
-                        <div id="distance-location-scale">
-                            <p id="scale-low"></p>
-                            <p id="scale-high"></p>
-                        </div>                
-                    </div>  
-                              
-                </div>
-                <div class="filters-type"></div>
-                <div class="filters-type"></div>
-            </fieldset>
+                        <div id="location-selection">
+                            <div class="radio" id="location-input">
+                                <input placeholder="Ajouter une localisation">
+                                <span></span>
+                            </div>
+                            <div class="radio" id="location-position">
+                                <p>Autour de moi</p>
+                                <span></span>
+                            </div>      
+                            <div class="distance-location">
+                                <p>Dans un rayon de</p>
+                                <p id="distance-location-km"></p>
+                            </div>  
+                            <div class="slidecontainer">
+                                <input type="range" min="0" max="6" class="slider" id="slider-distance">
+                            </div> 
+                            <div id="distance-location-scale">
+                                <p id="scale-low"></p>
+                                <p id="scale-high"></p>
+                            </div>                
+                        </div>                                
+                    </div>
+                    <div class="filters-type">
+                        <legend>Espèces</legend>
+                        <div class="filters-type-buttons"  id="select-species">
+                            <span class="filter-left p2" id="filter-all-species"><p>Toutes</p></span>
+                            <span class="filter-right p2" id="filter-species"><p>Espèces</p><i class="fa-solid fa-chevron-down"></i></span>
+                        </div>
+                    </div>                
+                    <div class="filters-type">
+                        <legend>Trier par</legend>
+                        <div class="filters-type-buttons sort"  id="sort-by-1">
+                            <span class="filter-top-left p2" id="sort-date"><p>Date</p></span>
+                            <span class="filter-top-right p2" id="sort-popularity"><p>Popularité</p></span>
+                        </div>
+                        <div class="filters-type-buttons sort"  id="sort-by-2">
+                            <span class="filter-bottom-left p2" id="sort-size"><p>Taille</p></span>
+                            <span class="filter-bottom-right p2" id="sort-weight"><p>Poids</p></span>
+                        </div>
+                    </div>
+                </fieldset>                
+            </div>            
         </div>
-        <div class="center">
-            <div class="publications-add">
-                <div class="publish"></div>
-                <div class="add-fish"></div>
-                <div class="start-end-session"></div>
-            </div>
+        <div class="center">            
             <div class="publications"></div>
         </div>
-        <div class="right">
-            <div class="friends"></div>
+        <div class="right">            
+            <div id="feed-right">
+                <div class="friends">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae architecto voluptatem nam doloribus maxime minima impedit itaque rerum vitae laboriosam, mollitia unde quibusdam similique nihil corporis eum distinctio sapiente quod.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae architecto voluptatem nam doloribus maxime minima impedit itaque rerum vitae laboriosam, mollitia unde quibusdam similique nihil corporis eum distinctio sapiente quod.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae architecto voluptatem nam doloribus maxime minima impedit itaque rerum vitae laboriosam, mollitia unde quibusdam similique nihil corporis eum distinctio sapiente quod.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae architecto voluptatem nam doloribus maxime minima impedit itaque rerum vitae laboriosam, mollitia unde quibusdam similique nihil corporis eum distinctio sapiente quod.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae architecto voluptatem nam doloribus maxime minima impedit itaque rerum vitae laboriosam, mollitia unde quibusdam similique nihil corporis eum distinctio sapiente quod.</p>
+                </div>
+            </div>
         </div>    
     </div>    
 </body>
