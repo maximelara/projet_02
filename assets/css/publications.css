@@ -5,5 +5,68 @@
     border-left: 2px solid var(--greenColor);
     border-bottom: 2px solid var(--greenColor);
     margin-bottom: 20px;
-    height: 500px;
+    padding: 10px;
+    min-width: 250px;
+    
+}
+
+.profile-pic-publication{
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 3px 5px 0.5px  rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+.header-publication{
+    margin-left: 20px;
+    align-self: center;    
+}
+.userName-publication{
+    color: var(--greenTitleColor);
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.date-publication{
+    color: var(--grayColor);
+    font-size: 12px;
+}
+.text-publication{
+    margin-top: 10px;
+    color: var(--blackColor);
+    font-family: "Roboto";
+    cursor: pointer;
+}
+
+.reactions{
+    margin-top: 10px;
+    display: flex;
+    width: 50%;
+    margin-left: auto;
+    justify-content: space-between;
+}
+.reactions div{
+    display: flex;
+}
+.reactions *{
+    color: var(--greenTitleColor);
+    font-size: 12px;
+    cursor: pointer;
+}
+.reactions i{
+    font-size: 16px;
+    margin-right: 5px;
+}
+.is-liked{
+    color: var(--redColor);
+}
+
+
+@media screen and (max-width: 1000px) {
+    .reactions{
+        width: 100%;
+        justify-content: space-around;
+    }
 }

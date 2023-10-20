@@ -91,7 +91,6 @@
     border: none; 
     color: var(--blackColor);
     padding: 5px 0;
-    cursor: pointer;
 }
 #location-position{
     cursor: pointer;
