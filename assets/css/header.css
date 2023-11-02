@@ -8,6 +8,7 @@
     z-index: 1000;
     transition: transform 0.25s ease;
 }
+
 #header #feedA{
     display: none;
 }

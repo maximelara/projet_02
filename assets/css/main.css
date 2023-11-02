@@ -14,10 +14,15 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
-    list-style: none;
-    color: var(--whiteColor);
+    list-style: none;    
     font-family: "Century Gothic";
     font-size: 14px;
+}
+#header a{
+    color: var(--whiteColor);
+}
+#menuMobile a{
+    color: var(--whiteColor);
 }
 html, body{
     height: 100%;    
@@ -58,6 +63,7 @@ button{
     border: none;
     padding: 0 10px;
     font-weight: bold;
+    color: var(--whiteColor);
 }
 button:active{
     background-color: var(--whiteColor);

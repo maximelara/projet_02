@@ -1,11 +1,19 @@
 function displayCurrentSession() {
-    //mobil
     const status = false;
+    //mobil    
     const divMobile = document.querySelector("#infoSessionMobile");
-    currentSession(divMobile, status);    
+    try{
+        currentSession(divMobile, status);    
+    } catch{
+
+    }    
     //web
     const divWeb = document.querySelector("#currentSession");
-    currentSession(divWeb, status);    
+    try{
+        currentSession(divWeb, status);  
+    } catch{
+        
+    }
 }
 
 function currentSession(div, status=false) {

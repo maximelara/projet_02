@@ -1,6 +1,7 @@
 
 .currentSession p{
     margin: 10px 10px 0 10px;
+    color: var(--whiteColor);
     
 }
 .currentSession button{
