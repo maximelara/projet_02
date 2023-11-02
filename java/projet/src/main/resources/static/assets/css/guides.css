@@ -1,13 +1,13 @@
-#header #guides{
+#header #guide{
     font-weight: bold;
     color: var(--darkGreenColor);
 }
-#div-form-filters-species{    
+#div-form-filters-species{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.filters-type-buttons{    
+.filters-type-buttons{
     display: flex;
     justify-content: space-between;
 }
@@ -53,19 +53,19 @@
 
 @media screen and (max-width: 1000px) {
     #main{
-        margin: 0 auto;  
+        margin: 0 auto;
         padding-top: 80px;
     }
-    #div-form-filters-species{    
+    #div-form-filters-species{
         display: block;
         text-align: center;
     }
 
     #search-bar-species{
-        width: 100%;        
+        width: 100%;
     }
     .filter-species{
         margin: 10px 0;
     }
-    
+
 }

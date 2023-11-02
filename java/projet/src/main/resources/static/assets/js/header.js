@@ -46,13 +46,13 @@ function navbar(div){
         "feed" : "Fil d'actu",
         "map" : "Map",
         "classement" : "Classement",
-        "guides" : "Guides",
+        "guide" : "Guide",
     }
     for (page in pages) {
         let element = document.createElement("li");
         let elementLink = document.createElement("a");
         elementLink.textContent = pages[page];
-        elementLink.href = `../html/${page}.html`;         
+        elementLink.href = page;         
         elementLink.style.fontSize = "20px";
         elementLink.id = page;
         element.append(elementLink);
@@ -169,14 +169,14 @@ function hiddenHeader(){
 function navbarMobile(div){
     const ulNavbar = document.createElement("ul");
     ulNavbar.id = "navbarMobile";
-    const displayMenuList = ["Profil", "Map", "Classement", "Guides", "Amis"];
+    const displayMenuList = ["Profil", "Map", "Classement", "Guide", "Amis"];
     for (page of displayMenuList) {
         let element = document.createElement("li");
         let elementLink = document.createElement("a");
         elementLink.innerText = page;    
         elementLink.style.fontSize = "20px";
         element.style.margin = "30px 50px";
-        elementLink["href"] = `../html/${page.toLowerCase()}.html`;
+        elementLink["href"] = page.toLowerCase();
         element.append(elementLink);
         ulNavbar.append(element);
     }
