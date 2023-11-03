@@ -55,9 +55,13 @@ function sortBy() {
                 property = "taille_moyenne_espece";
             }
             data.sort((a, b) => {
-                if (a[property] < b[property]) return -1;
-                if (a[property] > b[property]) return 1;
-                return 0;
+                if (property === "taille_moyenne_espece") {
+                    const sizeA = parseFloat(a[property].match(/\d+/)[0]);
+                    const sizeB = parseFloat(b[property].match(/\d+/)[0]);
+                    return sizeA - sizeB;
+                } else {
+                    return a[property].localeCompare(b[property]);
+                }
             });
             if (selectedButton.querySelector("i.fa-arrow-up")) {
                 data.reverse();
@@ -79,9 +83,13 @@ function sortBybase() {
         property = "taille_moyenne_espece";
     }
     data.sort((a, b) => {
-        if (a[property] < b[property]) return -1;
-        if (a[property] > b[property]) return 1;
-        return 0;
+        if (property === "taille_moyenne_espece") {
+            const sizeA = parseFloat(a[property].match(/\d+/)[0]);
+            const sizeB = parseFloat(b[property].match(/\d+/)[0]);
+            return sizeA - sizeB;
+        } else {
+            return a[property].localeCompare(b[property]);
+        }
     });
 
     if (selectedButton.querySelector("i.fa-arrow-up")) {
