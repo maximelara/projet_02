@@ -51,6 +51,12 @@
     padding: 0 10px;
 }
 
+.filters-type-buttons span.selected {
+    background-color: var(--greenColor);
+    color: var(--whiteColor);
+    font-weight: bold;
+}   
+
 @media screen and (max-width: 1000px) {
     #main{
         margin: 0 auto;

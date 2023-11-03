@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/guides.css">
+    <link rel="stylesheet" href="../assets/css/currentSession.css">   
+    <script src="https://kit.fontawesome.com/579794de73.js" crossorigin="anonymous"></script> 
+    <script src="../assets/js/header.js" defer></script>
+    <script src="../assets/js/currentSession.js" defer></script>
+    <script src="../assets/js/guides.js" defer></script>
+    <title>Guides</title>
+</head>
+<body>  
+    <div id="header"></div>  
+    <div id="main">
+        <form action="" method="get" id="form-filters-species">   
+            <div id="div-form-filters-species">
+                <input type="text" name="q" placeholder="Rechercher..." id="search-bar-species">           
+                <div class="filter-species">
+                    <legend>Types d'eaux</legend>
+                    <div class="filters-type-buttons" id ="filter-water-type">
+                        <span id="water-freshwater" class="filter filter-left p3" data-type="Eau douce">Eau douce</span>
+                        <span id="water-saltwater" class="filter filter-center p3" data-type="Eau de mer">Eau de mer</span>
+                        <span id="water-brackish" class="filter filter-right p3" data-type="Eau saumâtre">Eau saumâtre</span>
+                    </div>
+                </div> 
+                <div class="filter-species">
+                    <legend>Trier par</legend>
+                    <div class="filters-type-buttons" id ="filter-sort">
+                        <span class="filter-left p3" id="filter-sort-name">Nom <i class="fa-solid fa-arrow-down"></i></span>
+                        <span class="filter-center p3" id="filter-sort-latin-name">Nom latin <i class="fa-solid fa-arrow-down"></i></span>
+                        <span class="filter-right p3" id="filter-sort-mean-lenght">Taille moyenne <i class="fa-solid fa-arrow-down"></i></span>
+                    </div>
+                </div> 
+            </div>
+        </form>
+        <p id="nb-species"></p>
+        <ul id="species-list">
+            
+        </ul>
+
+    </div>
+</body>
+</html>

@@ -52,7 +52,7 @@ function navbar(div){
         let element = document.createElement("li");
         let elementLink = document.createElement("a");
         elementLink.textContent = pages[page];
-        elementLink.href = page;         
+        elementLink.href = page + ".html";         
         elementLink.style.fontSize = "20px";
         elementLink.id = page;
         element.append(elementLink);
@@ -176,7 +176,7 @@ function navbarMobile(div){
         elementLink.innerText = page;    
         elementLink.style.fontSize = "20px";
         element.style.margin = "30px 50px";
-        elementLink["href"] = page.toLowerCase();
+        elementLink["href"] = page.toLowerCase()  + ".html";
         element.append(elementLink);
         ulNavbar.append(element);
     }
