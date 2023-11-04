@@ -49,13 +49,53 @@
     outline: none;
     height: 35px;
     padding: 0 10px;
+    align-self: flex-end;
+}
+#nb-species{
+    margin: 10px 0;
 }
 
 .filters-type-buttons span.selected {
     background-color: var(--greenColor);
     color: var(--whiteColor);
     font-weight: bold;
-}   
+} 
+
+#species-list{
+    display: flex;
+    flex-wrap: wrap;  
+    justify-content: space-between;
+    width: 100%;
+}
+
+.fish-element{
+    width: 30%;
+    width: 30%;
+    background-color: var(--whiteColor);
+    margin-bottom: 25px;
+    box-sizing: border-box;
+    border-left: 2px solid var(--greenColor);
+    border-bottom: 2px solid var(--greenColor);
+    padding: 10px;
+}
+.fish-element-img{
+    margin-top: 10px;
+    height: 125px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.name-fish{
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--greenTitleColor);
+    word-wrap: break-word;
+}
+#filter-sort .filter{
+    display: flex;
+    justify-content: space-evenly;
+
+}
 
 @media screen and (max-width: 1000px) {
     #main{
@@ -68,10 +108,20 @@
     }
 
     #search-bar-species{
-        width: 100%;
+        width: 95%;
     }
     .filter-species{
         margin: 10px 0;
+    }
+    
+    .fish-element{
+        min-width: 100%;
+    }
+    
+    .fish-element-img{
+        height: auto;
+        width: 100%;
+        object-fit: cover;
     }
 
 }

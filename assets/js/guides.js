@@ -1,6 +1,6 @@
-let data = [];
+let allData = [];
 
-function getData() {
+function getAllData() {
     const apiUrl = "http://localhost:8080/api/guide";
 
     return fetch(apiUrl)
@@ -11,28 +11,20 @@ function getData() {
             return response.json();
         })
         .then(fetchedData => {
-            data = fetchedData; 
-            sortBybase();
-           
+            allData = fetchedData;  
+            filterData(allData);
         })
         .catch(error => {
             console.error("Une erreur s'est produite :", error);
         });
 }
 
-function updateUI(data) {
-    const liste = document.querySelector("#species-list");
-    liste.innerHTML = ""; 
-    data.forEach(fish => {
-        const li = document.createElement("li");
-        li.innerText = fish.nom_espece + " - " + fish.nom_latin_espece + " - " + fish.taille_moyenne_espece;
-        liste.appendChild(li);
-    });
-}
-
-function sortBy() {
+function animButtons() {
+    //trie
     const sortButtons = document.querySelectorAll("#filter-sort span");
+    sortButtons[0].classList.add("selected");
     sortButtons.forEach(button => {
+        button.style.userSelect = "none";
         button.addEventListener("click", () => {
             if (!button.classList.contains('selected')) {
                 sortButtons.forEach(btn => btn.classList.remove('selected'));
@@ -45,36 +37,50 @@ function sortBy() {
                     arrowIcon.classList.replace('fa-arrow-up', 'fa-arrow-down');
                 }                
             }
-            let selectedButton = document.querySelector(".selected");
-            let property;
-            if (selectedButton.id === "filter-sort-name") {
-                property = "nom_espece";
-            } else if (selectedButton.id === "filter-sort-latin-name") {
-                property = "nom_latin_espece";
-            } else if (selectedButton.id === "filter-sort-mean-lenght") {
-                property = "taille_moyenne_espece";
-            }
-            data.sort((a, b) => {
-                if (property === "taille_moyenne_espece") {
-                    const sizeA = parseFloat(a[property].match(/\d+/)[0]);
-                    const sizeB = parseFloat(b[property].match(/\d+/)[0]);
-                    return sizeA - sizeB;
-                } else {
-                    return a[property].localeCompare(b[property]);
-                }
-            });
-            if (selectedButton.querySelector("i.fa-arrow-up")) {
-                data.reverse();
-            }
-            updateUI(data);
+            
         });
     });
-}
-function sortBybase() {
-    document.querySelector("#filter-sort-name").classList.add("selected");
-    const selectedButton = document.querySelector(".selected");
-    let property;
+    // type eaux
+    const waterButtons = document.querySelectorAll("#filter-water-type span");
+    waterButtons.forEach(button => {
+        button.classList.add("selected");
+        button.style.userSelect = "none";
+        button.addEventListener("click", () => {            
+            button.classList.toggle('selected'); 
+        });
+    });
+    
 
+
+}
+
+function filterInput(data) {
+    let newData = [];
+    const input = document.querySelector("#search-bar-species");    
+    data.forEach(_ => {
+        if (input.value.toLowerCase() === "" || _.nom_espece.toLowerCase().includes(input.value.toLowerCase()) || _.nom_latin_espece.toLowerCase().includes(input.value.toLowerCase())) {
+            newData.push(_);
+        }
+    });    
+    return newData;
+}
+
+function filterWater(data) {
+    let newData = [];
+    const waterSelect = document.querySelectorAll("#filter-water-type .selected");    
+    waterSelect.forEach(btn => {
+        data.forEach(_ => {
+            if (_.typeEauxEspece.toLowerCase().includes(btn.textContent.toLowerCase())) {
+                newData.push(_);
+            }
+        });
+    });
+    return newData;
+}
+
+function sortBybase(data) {
+    const selectedButton = document.querySelector("#filter-sort .selected");
+    let property;
     if (selectedButton.id === "filter-sort-name") {
         property = "nom_espece";
     } else if (selectedButton.id === "filter-sort-latin-name") {
@@ -83,22 +89,86 @@ function sortBybase() {
         property = "taille_moyenne_espece";
     }
     data.sort((a, b) => {
-        if (property === "taille_moyenne_espece") {
-            const sizeA = parseFloat(a[property].match(/\d+/)[0]);
-            const sizeB = parseFloat(b[property].match(/\d+/)[0]);
-            return sizeA - sizeB;
+        if (a[property] !== undefined && b[property] !== undefined) {
+            if (property === "taille_moyenne_espece") {
+                const sizeA = parseFloat(a[property].match(/\d+/)[0]);
+                const sizeB = parseFloat(b[property].match(/\d+/)[0]);
+                return sizeA - sizeB;
+            } else {
+                return a[property].localeCompare(b[property]);
+            }
         } else {
-            return a[property].localeCompare(b[property]);
+            // Gérer le cas où la propriété n'est pas définie
+            return 0; // Ou une autre valeur de retour appropriée
         }
     });
-
     if (selectedButton.querySelector("i.fa-arrow-up")) {
         data.reverse();
     }
-    updateUI(data);   
+    return data;
+}
+
+function filterData(data) {
+    dataInput = filterInput(data);
+    dataWater = filterWater(dataInput);
+    dataSort = sortBybase(dataWater);
+    dataSort = Array.from(new Set(dataSort.map(JSON.stringify)), JSON.parse);
+    updateUI(dataSort);
+}
+
+function onClick() {
+    //search bar
+    const input = document.querySelector("#search-bar-species");    
+    input.addEventListener("keyup", () =>{
+        filterData(allData);
+    });
+    //btns
+    const buttons = document.querySelectorAll(".filter");    
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            filterData(allData);
+        });
+    });
+}
+
+function updateUI(data) {
+    const liste = document.querySelector("#species-list");
+    const nbElement = document.querySelector("#nb-species");
+    nbElement.innerHTML = '<span style="font-weight: bold;">' + data.length + '</span> poissons trouvés.';
+    liste.innerHTML = ""; 
+    data.forEach(fish => {
+        const li = document.createElement("li");
+        li.classList.add("fish-element");
+        const liHeader = document.createElement("div");
+        const name = document.createElement("p");
+        const latinName = document.createElement("p");
+        const meanLength = document.createElement("p");
+        const liHeaderWater = document.createElement("p");
+        const img = document.createElement("img"); 
+        img.classList.add("fish-element-img");     
+        name.innerText = fish.nom_espece;
+        latinName.innerText = fish.nom_latin_espece;  
+        latinName.style.fontStyle = "italic";
+        name.classList.add("name-fish");        
+        meanLength.innerText = "Taille moyenne : " + fish.taille_moyenne_espece; 
+        img.onerror = function() {
+            img.src = "../assets/img/fishs/defaut.png";
+        };
+        img.src = "../assets/img/fishs/" + fish.nom_espece.toLowerCase() + "_01.png";
+        liHeaderWater.innerText = "Eaux : " +  fish.typeEauxEspece;
+        liHeader.append(name);
+        liHeader.append(latinName);
+        liHeader.append(meanLength);
+        liHeader.append(liHeaderWater);
+        li.append(liHeader);     
+        li.append(img);     
+        liste.appendChild(li);
+    });
 }
 
 
-getData();
-sortBy();
+animButtons();
+getAllData();
+onClick();
+
 
