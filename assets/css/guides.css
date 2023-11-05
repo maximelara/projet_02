@@ -96,7 +96,25 @@
     justify-content: space-evenly;
 
 }
-
+.type-water{
+    display: flex;
+    align-items: center;
+}
+.water {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+.saltwater {
+    background-color: var(--blueColor);
+}
+.freshwater {
+    background-color: var(--greenColor);
+}
+.brackish {
+    background-color: var(--greenTitleColor);
+}
 @media screen and (max-width: 1000px) {
     #main{
         margin: 0 auto;

@@ -21,7 +21,7 @@ function getAllData() {
 
 function animButtons() {
     //trie
-    const sortButtons = document.querySelectorAll("#filter-sort span");
+    const sortButtons = document.querySelectorAll("#filter-sort span");    
     sortButtons[0].classList.add("selected");
     sortButtons.forEach(button => {
         button.style.userSelect = "none";
@@ -37,7 +37,6 @@ function animButtons() {
                     arrowIcon.classList.replace('fa-arrow-up', 'fa-arrow-down');
                 }                
             }
-            
         });
     });
     // type eaux
@@ -49,9 +48,6 @@ function animButtons() {
             button.classList.toggle('selected'); 
         });
     });
-    
-
-
 }
 
 function filterInput(data) {
@@ -134,7 +130,13 @@ function onClick() {
 function updateUI(data) {
     const liste = document.querySelector("#species-list");
     const nbElement = document.querySelector("#nb-species");
-    nbElement.innerHTML = '<span style="font-weight: bold;">' + data.length + '</span> poissons trouvés.';
+    let nbFish = data.length;
+    if (nbFish > 1) {
+        nbElement.innerHTML = '<span style="font-weight: bold;">' + data.length + '</span> poissons trouvés.';
+    } else {
+        nbElement.innerHTML = '<span style="font-weight: bold;">' + data.length + '</span> poisson trouvé.';
+    }
+    
     liste.innerHTML = ""; 
     data.forEach(fish => {
         const li = document.createElement("li");
@@ -143,7 +145,8 @@ function updateUI(data) {
         const name = document.createElement("p");
         const latinName = document.createElement("p");
         const meanLength = document.createElement("p");
-        const liHeaderWater = document.createElement("p");
+        const liHeaderWater = document.createElement("div");
+        liHeaderWater.classList.add("type-water");
         const img = document.createElement("img"); 
         img.classList.add("fish-element-img");     
         name.innerText = fish.nom_espece;
@@ -155,7 +158,26 @@ function updateUI(data) {
             img.src = "../assets/img/fishs/defaut.png";
         };
         img.src = "../assets/img/fishs/" + fish.nom_espece.toLowerCase() + "_01.png";
-        liHeaderWater.innerText = "Eaux : " +  fish.typeEauxEspece;
+        if (fish.description_espece === null) {
+            img.title = "Pas de description.";
+        } else {
+            img.title = fish.description_espece;
+        }        
+        liHeaderWater.innerText = "Eaux : ";
+        let listeEaux = fish.typeEauxEspece.split(", ");
+        listeEaux.forEach(eau => {
+            let typeEau = document.createElement("div");
+            typeEau.classList.add("water");
+            if (eau === "Eau de mer") {
+                typeEau.classList.add("saltwater");                
+            } else if (eau === "Eau douce") {
+                typeEau.classList.add("freshwater");
+            } else if (eau === "Eau saumâtre") {
+                typeEau.classList.add("brackish");
+            } 
+            typeEau.title = eau;
+            liHeaderWater.append(typeEau);
+        });
         liHeader.append(name);
         liHeader.append(latinName);
         liHeader.append(meanLength);
@@ -165,6 +187,7 @@ function updateUI(data) {
         liste.appendChild(li);
     });
 }
+
 
 
 animButtons();
