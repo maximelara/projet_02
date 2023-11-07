@@ -28,6 +28,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	//Le validator hibernate
 	implementation("org.springframework.boot:spring-boot-starter-validation")
+	implementation("org.mindrot:jbcrypt:+")
 }
 
 tasks.withType<Test> {

@@ -3,17 +3,16 @@
 USE projet;
 
 -- Création des tables
-CREATE TABLE especes(
-   id_espece INT AUTO_INCREMENT,
-   nom_espece VARCHAR(255) NOT NULL,
-   nom_latin_espece VARCHAR(255),
-   taille_moyenne_espece VARCHAR(50),
-   description_espece TEXT,
-   type_eaux_espece VARCHAR(255),
-   image_espece VARCHAR(255),
-   PRIMARY KEY(id_espece)
-) ENGINE = InnoDB;
-
+-- CREATE TABLE especes(
+--    id_espece INT AUTO_INCREMENT,
+--    nom_espece VARCHAR(255) NOT NULL,
+--    nom_latin_espece VARCHAR(255),
+--    taille_moyenne_espece VARCHAR(50),
+--    description_espece TEXT,
+--    type_eaux_espece VARCHAR(255),
+--    image_espece VARCHAR(255),
+--    PRIMARY KEY(id_espece)
+-- ) ENGINE = InnoDB;
 
 -- CREATE TABLE roles(
 --    id_role INT AUTO_INCREMENT,
@@ -21,6 +20,38 @@ CREATE TABLE especes(
 --    PRIMARY KEY(id_role),
 --    UNIQUE(libelle_role)
 -- ) ENGINE = InnoDB;
+-- INSERT INTO roles (libelle_role) VALUES ('ROLE_ADMIN');
+-- INSERT INTO roles (libelle_role) VALUES ('ROLE_USER');
+
+
+
+
+CREATE TABLE utilisateurs(
+	id_utilisateur INT AUTO_INCREMENT,
+	pseudo_utilisateur VARCHAR(50) NOT NULL,
+	mot_de_passe_utilisateur VARCHAR(60) NOT NULL,
+    email_utilisateur VARCHAR(255) NOT NULL,
+	date_naissance_utilisateur DATE NOT NULL,
+	description_utilisateur TEXT,
+	technique_preferee_utilisateur VARCHAR(50),
+	image_profil_utilisateur VARCHAR(255),	
+	id_role INT DEFAULT 2,  
+	PRIMARY KEY(id_utilisateur),
+	UNIQUE(pseudo_utilisateur),
+	FOREIGN KEY(id_role) REFERENCES roles(id_role)
+) ENGINE = InnoDB;
+
+
+
+
+
+
+
+
+
+
+
+
 
 -- CREATE TABLE types_lieux(
 --    id_type_lieu INT AUTO_INCREMENT, 
@@ -50,20 +81,7 @@ CREATE TABLE especes(
 --    PRIMARY KEY(id_poisson)
 -- ) ENGINE = InnoDB;
 
--- CREATE TABLE utilisateurs(
---    id_utilisateur INT AUTO_INCREMENT,
---    pseudo_utilisateur VARCHAR(50) NOT NULL,
---    mot_de_passe_utilisateur VARCHAR(60) NOT NULL,
---    localisation_utilisateur POINT,
---    date_naissance_utilisateur DATE NOT NULL,
---    description_utilisateur TEXT,
---    technique_preferee_utilisateur VARCHAR(50),
---    image_profil_utilisateur VARCHAR(255),
---    id_role INT NOT NULL,
---    PRIMARY KEY(id_utilisateur),
---    UNIQUE(pseudo_utilisateur),
---    FOREIGN KEY(id_role) REFERENCES roles(id_role)
--- ) ENGINE = InnoDB;
+
 
 -- CREATE TABLE sessions(
 --    id_session INT AUTO_INCREMENT,

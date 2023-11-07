@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../assets/css/main.css">
+        <link rel="stylesheet" href="../assets/css/inscription.css">
+        <script src="https://kit.fontawesome.com/579794de73.js" crossorigin="anonymous"></script> 
+        <script src="../assets/js/inscription.js" defer></script>
+        <title>Inscription</title>
+    </head>
+    <body>         
+        <form  method="post" id="inscription-form"> 
+            <input type="email" id="email" name="emailUtilisateur" placeholder="E-mail" required>   
+            
+            <input type="password" id="motDePasse" name="motDePasseUtilisateur" placeholder="Mot de passe" required>
+
+            
+            <input type="password" id="confirmerMotDePasse" name="confirmerMotDePasseUtilisateur" required>
+            
+
+            
+            <input type="text" id="pseudo" name="pseudoUtilisateur" required>
+
+            <label for="dateNaissance">Date de naissance :</label>
+            <input type="date" id="dateNaissance" name="dateNaissanceUtilisateur" required>        
+
+            <input type="submit" value="S'inscrire">
+            <p id="message"></p>
+        </form>        
+    </body>
+</html>
