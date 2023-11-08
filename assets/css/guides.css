@@ -98,7 +98,7 @@
 }
 .type-water{
     display: flex;
-    align-items: center;
+    align-items: end;
 }
 .water {
     width: 14px;
