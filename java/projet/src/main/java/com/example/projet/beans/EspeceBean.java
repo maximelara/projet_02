@@ -17,7 +17,9 @@ public class EspeceBean {
     private String typeEauxEspece;
     private String image_espece;
 
-    public EspeceBean(String nom_espece, String nom_latin_espece, String taille_moyenne_espece, String description_espece, String typeEauxEspece, String image_espece) {
+    public EspeceBean(String nom_espece, String nom_latin_espece,
+                      String taille_moyenne_espece, String description_espece,
+                      String typeEauxEspece, String image_espece) {
         this.nom_espece = nom_espece;
         this.nom_latin_espece = nom_latin_espece;
         this.taille_moyenne_espece = taille_moyenne_espece;

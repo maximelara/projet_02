@@ -18,7 +18,9 @@ public class UtilisateurBean {
     private String imageProfilUtilisateur;
     private int idRole;
 
-    public UtilisateurBean(int idUtilisateur, String pseudoUtilisateur, String motDePasseUtilisateur, String emailUtilisateur, Date dateNaissanceUtilisateur, String descriptionUtilisateur, String techniquePrefereeUtilisateur, String imageProfilUtilisateur, int idRole) {
+    public UtilisateurBean(int idUtilisateur, String pseudoUtilisateur, String motDePasseUtilisateur,
+                           String emailUtilisateur, Date dateNaissanceUtilisateur, String descriptionUtilisateur,
+                           String techniquePrefereeUtilisateur, String imageProfilUtilisateur, int idRole) {
         this.idUtilisateur = idUtilisateur;
         this.pseudoUtilisateur = pseudoUtilisateur;
         this.motDePasseUtilisateur = motDePasseUtilisateur;

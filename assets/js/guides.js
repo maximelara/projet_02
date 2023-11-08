@@ -93,9 +93,8 @@ function sortBybase(data) {
             } else {
                 return a[property].localeCompare(b[property]);
             }
-        } else {
-            // Gérer le cas où la propriété n'est pas définie
-            return 0; // Ou une autre valeur de retour appropriée
+        } else {            
+            return 0; 
         }
     });
     if (selectedButton.querySelector("i.fa-arrow-up")) {

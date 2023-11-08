@@ -1,5 +1,5 @@
 function displayCurrentSession() {
-    const status = false;
+    const status = true;
     //mobil    
     const divMobile = document.querySelector("#infoSessionMobile");
     try{
