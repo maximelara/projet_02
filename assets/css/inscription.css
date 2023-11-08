@@ -9,8 +9,8 @@
     align-items: center; 
 }
 #inscription-header img{
-    width: 250px;
-    height: auto;   
+    height: 70px;   
+    width: auto;   
 }
 #inscription{
     width: min-content;
