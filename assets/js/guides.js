@@ -112,21 +112,6 @@ function filterData(data) {
     updateUI(dataSort);
 }
 
-function onClick() {
-    //search bar
-    const input = document.querySelector("#search-bar-species");    
-    input.addEventListener("keyup", () =>{
-        filterData(allData);
-    });
-    //btns
-    const buttons = document.querySelectorAll(".filter");    
-    buttons.forEach(btn => {
-        btn.addEventListener("click", () => {
-            filterData(allData);
-        });
-    });
-}
-
 function updateUI(data) {
     const liste = document.querySelector("#species-list");
     const nbElement = document.querySelector("#nb-species");
@@ -188,6 +173,20 @@ function updateUI(data) {
     });
 }
 
+function onClick() {
+    //search bar
+    const input = document.querySelector("#search-bar-species");    
+    input.addEventListener("keyup", () =>{
+        filterData(allData);
+    });
+    //btns
+    const buttons = document.querySelectorAll(".filter");    
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            filterData(allData);
+        });
+    });
+}
 
 
 animButtons();
