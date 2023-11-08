@@ -26,20 +26,21 @@ USE projet;
 
 
 
-CREATE TABLE utilisateurs(
-	id_utilisateur INT AUTO_INCREMENT,
-	pseudo_utilisateur VARCHAR(50) NOT NULL,
-	mot_de_passe_utilisateur VARCHAR(60) NOT NULL,
-    email_utilisateur VARCHAR(255) NOT NULL,
-	date_naissance_utilisateur DATE NOT NULL,
-	description_utilisateur TEXT,
-	technique_preferee_utilisateur VARCHAR(50),
-	image_profil_utilisateur VARCHAR(255),	
-	id_role INT DEFAULT 2,  
-	PRIMARY KEY(id_utilisateur),
-	UNIQUE(pseudo_utilisateur),
-	FOREIGN KEY(id_role) REFERENCES roles(id_role)
-) ENGINE = InnoDB;
+-- CREATE TABLE utilisateurs(
+-- 	id_utilisateur INT AUTO_INCREMENT,
+-- 	pseudo_utilisateur VARCHAR(50) NOT NULL,
+-- 	mot_de_passe_utilisateur VARCHAR(60) NOT NULL,
+--     email_utilisateur VARCHAR(255) NOT NULL,
+-- 	date_naissance_utilisateur DATE NOT NULL,
+-- 	description_utilisateur TEXT,
+-- 	technique_preferee_utilisateur VARCHAR(50),
+-- 	image_profil_utilisateur VARCHAR(255),	
+-- 	id_role INT DEFAULT 2,  
+-- 	PRIMARY KEY(id_utilisateur),
+-- 	UNIQUE(pseudo_utilisateur),
+-- 	FOREIGN KEY(id_role) REFERENCES roles(id_role)
+-- ) ENGINE = InnoDB;
+
 
 
 

@@ -1,0 +1,59 @@
+#inscription-header {
+    width: 100%;
+    height: 100px;
+    background-color: var(--greenColor);
+    box-sizing: border-box;
+    border-bottom: 2px solid var(--darkGreenColor);
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+}
+#inscription-header img{
+    width: 250px;
+    height: auto;   
+}
+#inscription{
+    width: min-content;
+    margin: 0 auto;
+    padding: 10px;
+}
+#inscription-form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+#inscription-form > * {
+    margin:5px 0; 
+    height: 25px;
+}
+#inscription-form div{
+    display: flex;    
+    justify-content: space-between;
+    align-items: center; 
+}
+#inscription-form div > *{
+    width: 50%;
+}
+
+#inscription-form #button{
+    height: 40px;
+    background-color: var(--greenColor);
+    color: var(--whiteColor);
+}
+/* #message {
+    display: none;
+} */
+
+@media screen and (max-width: 1000px) {
+    #inscription-form{        
+        width: 100%;    
+        max-width: 300px;   
+    }
+    #inscription{
+        width: 100%; 
+        max-width: 300px;         
+    }
+
+}

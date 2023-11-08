@@ -9,24 +9,26 @@
         <script src="../assets/js/inscription.js" defer></script>
         <title>Inscription</title>
     </head>
-    <body>         
-        <form  method="post" id="inscription-form"> 
-            <input type="email" id="email" name="emailUtilisateur" placeholder="E-mail" required>   
-            
-            <input type="password" id="motDePasse" name="motDePasseUtilisateur" placeholder="Mot de passe" required>
-
-            
-            <input type="password" id="confirmerMotDePasse" name="confirmerMotDePasseUtilisateur" required>
-            
-
-            
-            <input type="text" id="pseudo" name="pseudoUtilisateur" required>
-
-            <label for="dateNaissance">Date de naissance :</label>
-            <input type="date" id="dateNaissance" name="dateNaissanceUtilisateur" required>        
-
-            <input type="submit" value="S'inscrire">
-            <p id="message"></p>
-        </form>        
+    <body>
+        <div id="inscription-header">
+            <img src="../assets/img/logo/logo.png">
+        </div>
+        <div id="main">
+            <fieldset id="inscription">
+                <legend>Inscription</legend>
+                <form  method="post" id="inscription-form"> 
+                    <input type="email" id="email" name="emailUtilisateur" placeholder="E-mail" required>               
+                    <input type="password" id="motDePasse" name="motDePasseUtilisateur" placeholder="Mot de passe" required>
+                    <input type="password" id="confirmerMotDePasse" name="confirmerMotDePasseUtilisateur" placeholder="Confirmer le mot de passe" required>
+                    <input type="text" id="pseudo" name="pseudoUtilisateur" placeholder="Pseudo" required>
+                    <div>
+                        <label for="dateNaissance">Date de naissance :</label>
+                        <input type="date" id="dateNaissance" name="dateNaissanceUtilisateur" required>   
+                    </div>            
+                    <input type="submit" value="S'inscrire" id="button">                    
+                </form>   
+                <p id="message"></p>    
+            </fieldset>  
+        </div>
     </body>
 </html>
