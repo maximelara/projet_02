@@ -77,6 +77,9 @@
     border-left: 2px solid var(--greenColor);
     border-bottom: 2px solid var(--greenColor);
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .fish-element-img{
     margin-top: 10px;
